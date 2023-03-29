@@ -7,8 +7,8 @@ Container SideBarItem(
   final screenHeight = MediaQuery.of(context).size.height;
 
   return Container(
-    width: screenWidth * 0.12,
-    height: screenHeight * 0.18,
+    // width: screenWidth * 0.12,
+    // height: screenHeight * 0.18,
     color: AppColors.dark_green_color,
     // color: isSelected ? AppColors.dark_green_color : AppColors.white_color,
     child: Column(
