@@ -59,7 +59,7 @@ class AppStrings {
   static const String emotions = 'EMOTIONS';
   static const String family_and_work = 'FAMILY & WORK';
   static const String concerns = 'CONCERNS';
-  static const String conditions = 'CONDITION';
+  static const String condition = 'CONDITION';
   static const String sleep_and_position = 'SLEEP & POSITION';
   static const String therapy = 'THERAPY';
   static const String breathing = 'BREATHING';

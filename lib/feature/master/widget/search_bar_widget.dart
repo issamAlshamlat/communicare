@@ -17,6 +17,7 @@ class SearchBarWidget extends StatelessWidget {
 
     return Container(
       color: AppColors.light_gray_color,
+      height: screenHeight * 0.14,
       padding: EdgeInsets.all(screenHeight * 0.021),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,

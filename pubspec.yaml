@@ -63,6 +63,15 @@ flutter:
   
   assets:
     - resources/assets/icons/
+    - resources/assets/categories/pain/
+    - resources/assets/categories/
+    # - resources/assets/categories/concerns/concerns.png
+    # - resources/assets/categories/condition/condition.png
+    # - resources/assets/categories/emotions/emotions.png
+    # - resources/assets/categories/family_and_work/family & work.png
+    # - resources/assets/categories/sleep_and_position/sleep & position.png
+    # - resources/assets/categories/therapy/therapy.png
+    # - resources/assets/categories/toilet_and_washing/toilet & washing.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:

@@ -7,19 +7,34 @@ Container SideBarItem(
   final screenHeight = MediaQuery.of(context).size.height;
 
   return Container(
-    // width: screenWidth * 0.12,
-    // height: screenHeight * 0.18,
-    color: AppColors.dark_green_color,
-    // color: isSelected ? AppColors.dark_green_color : AppColors.white_color,
+    width: screenWidth * 0.12,
+    height: screenHeight * 0.175,
+    decoration: BoxDecoration(
+      border: Border.all(color: AppColors.white_color, width: 0.2),
+      color: isSelected ? AppColors.white_color : AppColors.dark_green_color,
+    ),
     child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
         Image.asset(
           imageName,
-          width: screenWidth * 0.034,
-          height: screenHeight * 0.046,
+          width: screenWidth * 0.035,
+          height: screenHeight * 0.05,
         ),
-        Text(title),
+        SizedBox(
+          height: 10,
+        ),
+        Text(
+          title,
+          style: TextStyle(
+            fontWeight: FontWeight.w400,
+            fontSize: screenWidth * 0.013,
+            color: isSelected
+                ? AppColors.side_menu_labels_color
+                : AppColors.white_color,
+          ),
+        ),
       ],
     ),
   );

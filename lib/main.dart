@@ -1,8 +1,8 @@
-import 'package:communicare/constants/app_strings.dart';
 import 'package:communicare/feature/master/page/master_page.dart';
 import 'package:communicare/theme/app_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:communicare/theme/app_strings.dart';
 
 void main() {
   runApp(MyApp());
