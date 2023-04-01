@@ -19,7 +19,7 @@ class _GridItemWidgetState extends State<GridItemWidget> {
 
     return Container(
       decoration: BoxDecoration(
-        color: AppColors.dark_green_color,
+        color: AppColors.white_color,
         borderRadius: BorderRadius.circular(10.0),
       ),
       // margin: EdgeInsets.all(20.0),
@@ -35,14 +35,23 @@ class _GridItemWidgetState extends State<GridItemWidget> {
             ),
           ),
           SizedBox(width: 10.0),
-          Text(
-            widget.item.title,
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis,
-            style: TextStyle(
-                fontSize: screenWidth * 0.0156,
-                fontWeight: FontWeight.bold,
-                color: AppColors.white_color),
+          Container(
+            child: Row(
+              children: [
+                Text(
+                  widget.item.title,
+                  softWrap: true,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontSize: 30,
+                    // fontSize: screenWidth * 0.0215,
+                    fontWeight: FontWeight.w600,
+                    color: AppColors.text_gray_color,
+                  ),
+                ),
+              ],
+            ),
           ),
         ],
       ),
