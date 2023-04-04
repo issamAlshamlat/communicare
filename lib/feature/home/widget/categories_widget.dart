@@ -1,6 +1,6 @@
 import 'package:communicare/constants/app_constants.dart';
 import 'package:communicare/feature/master/models/grid_item_model.dart';
-import 'package:communicare/feature/master/widget/grid_view_item.dart';
+import 'package:communicare/feature/home/widget/grid_view_item.dart';
 import 'package:communicare/theme/app_colors.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -16,14 +16,14 @@ class CategoriesWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
         ),
         margin: EdgeInsets.all(screenHeight * 0.016),
-        padding: EdgeInsets.symmetric(horizontal: screenHeight * 0.016),
+        padding: EdgeInsets.symmetric(horizontal: screenHeight * 0.025),
         child: GridView.builder(
           itemCount: AppConstants.categoriesList.length,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             crossAxisSpacing: 10,
             mainAxisSpacing: 10,
-            childAspectRatio: 3 / 1, // set the aspect ratio to 2:1
+            childAspectRatio: 3 / 1.1,
           ),
           itemBuilder: (BuildContext context, int index) {
             return GridItemWidget(

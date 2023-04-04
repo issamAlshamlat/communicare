@@ -1,18 +1,44 @@
-import 'package:communicare/feature/master/widget/categories_widget.dart';
-import 'package:communicare/feature/master/widget/pain_widget.dart';
+import 'package:communicare/feature/home/page/home_page.dart';
+import 'package:communicare/feature/home/widget/pain_widget.dart';
 import 'package:communicare/feature/master/widget/search_bar_widget.dart';
 import 'package:communicare/feature/master/widget/side_bar_widget.dart';
-import 'package:communicare/theme/app_config.dart';
+import 'package:communicare/feature/recent/page/recent_page.dart';
 import 'package:communicare/theme/app_strings.dart';
+import 'package:communicare/feature/home/widget/categories_widget.dart';
+import 'package:communicare/feature/app_audio_player.dart';
 import 'package:flutter/material.dart';
+import 'package:communicare/theme/app_config.dart';
 
-class MasterPage extends StatelessWidget {
+class MasterPage extends StatefulWidget {
+  @override
+  State<MasterPage> createState() => _MasterPageState();
+}
+
+class _MasterPageState extends State<MasterPage> {
+  int sideBarIndex = 0;
+  final AppAudioPlayer appAudioPlayer = AppAudioPlayer();
+
+  Widget buildChildBasedOnIndex(int index) {
+    switch (index) {
+      case 0:
+        return HomePage();
+      case 1:
+        return RecentScreen();
+      case 2:
+        return Container(
+          color: Colors.amberAccent,
+        );
+      default:
+        return Container(
+          color: Colors.red,
+        );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
     final screenWidth = MediaQuery.of(context).size.width;
-    final buttonsContainerWidth = screenWidth -
-        ((screenWidth * 0.26) + (screenWidth * 0.032) + (screenWidth * 0.12));
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -25,97 +51,16 @@ class MasterPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                SideBarWidget(),
-                PainWidget(),
-                Expanded(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Expanded(child: CategoriesWidget()),
-                      Container(
-                        margin: EdgeInsets.all(screenHeight * 0.016),
-                        // padding: EdgeInsets.symmetric(horizontal: screenHeight * 0.016),
-                        color: AppColors.white_color,
-                        height: 105,
-                        child: Expanded(
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.stretch,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Expanded(
-                                child: ElevatedButton(
-                                  onPressed: () {},
-                                  child: Text(
-                                    AppStrings.thanks,
-                                    style: TextStyle(
-                                      color: AppColors.black_color,
-                                      fontSize: screenWidth * 0.034,
-                                    ),
-                                  ),
-                                  style: ElevatedButton.styleFrom(
-                                    // fixedSize:Size(buttonsContainerWidth / 3.28, 105),
-                                    backgroundColor: AppColors.gray_color,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              SizedBox(
-                                width: 15,
-                              ),
-                              Expanded(
-                                child: ElevatedButton(
-                                  onPressed: () {},
-                                  child: Text(
-                                    AppStrings.no,
-                                    style: TextStyle(
-                                      color: AppColors.black_color,
-                                      fontSize: screenWidth * 0.034,
-                                    ),
-                                  ),
-                                  style: ElevatedButton.styleFrom(
-                                    // fixedSize:Size(buttonsContainerWidth / 3.28, 105),
-                                    backgroundColor: AppColors.light_red_color,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(8),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              SizedBox(
-                                width: 15,
-                              ),
-                              Expanded(
-                                child: ElevatedButton(
-                                  onPressed: () {},
-                                  child: Text(
-                                    AppStrings.yes,
-                                    style: TextStyle(
-                                      color: AppColors.black_color,
-                                      fontSize: screenWidth * 0.034,
-                                    ),
-                                  ),
-                                  style: ElevatedButton.styleFrom(
-                                    // fixedSize: Size(buttonsContainerWidth / 3.28, 105),
-                                    backgroundColor:
-                                        AppColors.light_green_color,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(8),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                SideBarWidget(onItemSelected: (index) {
+                  setState(() {
+                    sideBarIndex = index;
+                  });
+                }),
+                buildChildBasedOnIndex(sideBarIndex),
+                // Row(),
               ],
             ),
-          )
+          ),
         ],
       ),
     );

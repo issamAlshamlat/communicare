@@ -1,8 +1,8 @@
 import 'package:communicare/theme/app_config.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
-Container SideBarItem(
-    BuildContext context, String imageName, String title, bool isSelected) {
+Container SideBarItem(BuildContext context, String imageName, String title,
+    bool isSelected, BorderRadius radius) {
   final screenWidth = MediaQuery.of(context).size.width;
   final screenHeight = MediaQuery.of(context).size.height;
 
@@ -10,7 +10,8 @@ Container SideBarItem(
     width: screenWidth * 0.12,
     height: screenHeight * 0.175,
     decoration: BoxDecoration(
-      border: Border.all(color: AppColors.white_color, width: 0.2),
+      border: Border.all(color: Colors.transparent),
+      borderRadius: radius,
       color: isSelected ? AppColors.white_color : AppColors.dark_green_color,
     ),
     child: Column(

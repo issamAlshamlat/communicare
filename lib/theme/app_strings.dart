@@ -194,4 +194,9 @@ class AppStrings {
       'I have saliva in my mouth, please remove it';
   static const String why_am_i_naked = 'Why am I naked?';
   static const String i_want_a_mouthwash = 'I want a mouthwash';
+
+// Shared preferences
+  static const String gender_key = 'Gender';
+  static const String man = 'Man';
+  static const String woman = 'Woman';
 }
