@@ -1,4 +1,6 @@
+import 'package:communicare/feature/home/page/subcategory_page.dart';
 import 'package:communicare/feature/master/page/master_page.dart';
+import 'package:communicare/helpers/db/database_helper.dart';
 import 'package:communicare/theme/app_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -8,6 +10,9 @@ import 'package:communicare/feature/app_shared_preferences.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await AppSharedPreferences().init();
+  await DatabaseHelper.instance.db;
+  // await dbHelper.database;
+
   runApp(MyApp());
 }
 
@@ -29,6 +34,11 @@ class MyApp extends StatelessWidget {
         fontFamily: AppFonts.open_sans,
       ),
       home: MasterPage(),
+      routes: {
+        '/subcategory': (context) => SubcategoryPage(
+              itemsList: [],
+            ),
+      },
     );
   }
 }

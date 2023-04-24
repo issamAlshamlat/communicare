@@ -36,7 +36,6 @@ class _SideBarWidgetState extends State<SideBarWidget> {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
 
     return Container(
       color: AppColors.light_gray_color,
@@ -88,4 +87,5 @@ class _SideBarWidgetState extends State<SideBarWidget> {
       ),
     );
   }
+
 }

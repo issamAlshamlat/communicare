@@ -1,11 +1,11 @@
 import 'package:communicare/constants/app_enums.dart';
 import 'package:communicare/feature/app_shared_preferences.dart';
+import 'package:communicare/feature/home/widget/pain_details_popup_widget.dart';
+import 'package:communicare/helpers/db/database_helper.dart';
 import 'package:communicare/theme/app_colors.dart';
 import 'package:communicare/theme/app_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:communicare/theme/app_strings.dart';
-import 'dart:ui' as ui;
-import 'dart:typed_data';
 
 class PainWidget extends StatefulWidget {
   @override
@@ -14,6 +14,8 @@ class PainWidget extends StatefulWidget {
 
 class _PainWidgetState extends State<PainWidget> {
   final gender = AppSharedPreferences().getGender();
+  final DatabaseHelper db = DatabaseHelper.instance;
+
   List<Widget> _circularContainers = [];
 
   var bodyImageName = AppSharedPreferences().getGender() == Gender.Man
@@ -49,19 +51,30 @@ class _PainWidgetState extends State<PainWidget> {
                 height: screenHeight * 0.02,
               ),
               GestureDetector(
+                onTap: () {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      // Return the widget you want to show as the popup
+                      return PainDetailsPopupWidget();
+                    },
+                  );
+                },
                 onTapDown: (details) {
                   setState(() {
                     final touchPosition = details.localPosition;
+                    final touchPositionDx = touchPosition.dx + 30;
+                    final touchPositionDy = touchPosition.dy + 30;
 
                     final Offset globalPosition = details.globalPosition;
                     final RenderBox box =
                         context.findRenderObject() as RenderBox;
-                    final Offset localPosition =
-                        box.globalToLocal(globalPosition);
+                    // final Offset localPosition =
+                    box.globalToLocal(globalPosition);
 
                     final newCircularContainer = Positioned(
-                      left: touchPosition.dx + 30,
-                      top: touchPosition.dy + 30,
+                      left: touchPositionDx,
+                      top: touchPositionDy,
                       child: Container(
                         width: 30,
                         height: 30,
@@ -81,7 +94,11 @@ class _PainWidgetState extends State<PainWidget> {
                       ),
                     );
 
-                    _circularContainers.add(newCircularContainer);
+                    // _circularContainers.add(newCircularContainer);
+                    // db.insertPain(PainModel(
+                    //     intensity: 2,
+                    //     position: Offset(touchPositionDx, touchPositionDy),
+                    //     side: 'F'));
                   });
                 },
                 child: Image.asset(

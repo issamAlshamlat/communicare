@@ -1,6 +1,10 @@
 class AppStrings {
   static const String communicare = 'Communicare';
 
+// Routes
+  static const String home_page_route = '/';
+  static const String subcategory_page_route = '/subcategory';
+
 // Side bar
   static const String home = 'HOME';
   static const String recent = 'RECENT';
@@ -68,12 +72,12 @@ class AppStrings {
 // Subcategories
 
   // Emotions
-  static const String i_waant_to_hug_you = 'I want to hug you';
+  static const String i_want_to_hug_you = 'I want to hug you';
   static const String you_are_dear_to_me = 'You are dear to me';
   static const String i_love_you = 'I love you';
   static const String i_am_surprised = 'I am surprised';
   static const String i_dont_want_to_see_anyone =
-      'I don\'t want to see anyone.';
+      'I don\'t want to see anyone\.';
   static const String i_am_happy = 'I am happy';
   static const String i_am_sad = 'I am sad';
   static const String i_am_angry = 'I am angry';
@@ -195,8 +199,27 @@ class AppStrings {
   static const String why_am_i_naked = 'Why am I naked?';
   static const String i_want_a_mouthwash = 'I want a mouthwash';
 
+// Pain
+  static const String stings = 'Stings';
+  static const String chest_pain = 'Chest pain';
+  static const String prickling_like_ants_running =
+      'PRICKLING LIKE ANTS RUNNING';
+  static const String it_is_painful_to_breathe = 'It is painful to breathe';
+  static const String gaspain = 'gaspain';
+  static const String it_is_painful_to_cough = 'It is painful to cough';
+  static const String sharp_pain = 'sharp pain';
+  static const String numb_pain = 'numb pain';
+  static const String burning_pain = 'burning pain';
+  static const String tingle = 'Tingle';
+
 // Shared preferences
   static const String gender_key = 'Gender';
   static const String man = 'Man';
   static const String woman = 'Woman';
+}
+
+extension StringExtension on String {
+  String capitalize() {
+    return "${this[0].toUpperCase()}${this.substring(1).toLowerCase()}";
+  }
 }

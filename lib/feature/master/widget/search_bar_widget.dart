@@ -9,7 +9,6 @@ class SearchBarWidget extends StatelessWidget {
   static String monthName = DateFormat('MMMM').format(now);
   static String amPmIndicator = DateFormat('a').format(now);
   static bool isAm = amPmIndicator == 'AM';
-
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
@@ -43,13 +42,13 @@ class SearchBarWidget extends StatelessWidget {
                     color: AppColors.text_gray_color,
                   ),
                 ),
-                SizedBox(height: screenHeight * 0.0132),
+                SizedBox(height: screenHeight * 0.01),
                 Row(
                   children: [
                     Image.asset(
                       isAm ? AppIcons.sun_icon : AppIcons.moon_icon,
-                      width: screenWidth * 0.031,
-                      height: screenWidth * 0.031,
+                      width: screenWidth * 0.03,
+                      height: screenWidth * 0.03,
                     ),
                     SizedBox(width: 16),
                     Text(

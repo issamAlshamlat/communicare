@@ -1,3 +1,4 @@
+import 'package:communicare/constants/app_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:communicare/theme/app_config.dart';
 import 'package:communicare/theme/app_strings.dart';
@@ -5,8 +6,21 @@ import 'package:communicare/feature/home/widget/categories_widget.dart';
 import 'package:communicare/feature/app_audio_player.dart';
 import 'package:communicare/feature/home/widget/pain_widget.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  final Function onAudioFinished;
+
+  HomePage({required this.onAudioFinished});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   final AppAudioPlayer appAudioPlayer = AppAudioPlayer();
+
+  void handleAudioDidfinishPlaying() {
+    print('finished');
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +36,12 @@ class HomePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Expanded(
-                  child: CategoriesWidget(),
+                  child: CategoriesWidget(
+                    itemsList: AppConstants.categoriesList,
+                    childAspectRatio: 3 / 1.1,
+                    isForHome: true,
+                    onEvent: widget.onAudioFinished,
+                  ),
                 ),
                 Container(
                   margin: EdgeInsets.all(screenHeight * 0.016),
