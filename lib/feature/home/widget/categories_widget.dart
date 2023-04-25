@@ -47,7 +47,6 @@ class _CategoriesWidgetState extends State<CategoriesWidget> {
             return GestureDetector(
               onTap: () {
                 if (widget.isForHome) {
-                  print('categories Widget');
                   widget.onEvent;
                 }
                 widget.appAudioPlayer

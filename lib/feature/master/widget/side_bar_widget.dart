@@ -12,6 +12,7 @@ class SideBarWidget extends StatefulWidget {
 
 class _SideBarWidgetState extends State<SideBarWidget> {
   int selectedIndex = 0;
+  final SideBarBloc sidebarBloc = SideBarBloc();
 
   BorderRadius getBorderRadius(int index) {
     if (index == selectedIndex) {
@@ -68,7 +69,7 @@ class _SideBarWidgetState extends State<SideBarWidget> {
                 onTap: () {
                   setState(() {
                     selectedIndex = index;
-                    SideBarIndexChanged(index);
+                    sidebarBloc.add(SideBarIndexChanged(index));
                   });
                 },
                 child: SideBarItem(

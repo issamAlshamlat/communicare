@@ -1,11 +1,8 @@
 import 'package:communicare/feature/home/page/home_page.dart';
-import 'package:communicare/feature/home/page/subcategory_page.dart';
 import 'package:communicare/feature/master/widget/search_bar_widget.dart';
 import 'package:communicare/feature/master/widget/side_bar_widget.dart';
-import 'package:communicare/feature/recent/page/recent_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../bloc/side_bar_bloc.dart';
 
 class MasterPage extends StatefulWidget {
@@ -21,8 +18,8 @@ class _MasterPageState extends State<MasterPage> {
   // }
 
   Widget buildChildBasedOnState(SideBarState state) {
-    print(state);
-    if (state is HomeState) {
+    print('AppState ${state}');
+    if (state is SideBarInitial) {
       return HomePage(
         onAudioFinished: () {
           // setState(() {

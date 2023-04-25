@@ -9,6 +9,7 @@ class SearchBarWidget extends StatelessWidget {
   static String monthName = DateFormat('MMMM').format(now);
   static String amPmIndicator = DateFormat('a').format(now);
   static bool isAm = amPmIndicator == 'AM';
+
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;

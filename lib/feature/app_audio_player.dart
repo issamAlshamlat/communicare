@@ -20,7 +20,6 @@ class AppAudioPlayer {
       fileName = fileName.replaceAll(' ', '_');
     }
 
-    print('/audio/${fileName}_${gender}.mp3');
     await audioPlayer.play(AssetSource('/audio/${fileName}_${gender}.mp3'));
   }
 

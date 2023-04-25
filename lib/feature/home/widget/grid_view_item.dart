@@ -27,7 +27,6 @@ class _GridItemWidgetState extends State<GridItemWidget> {
   // Color itemTextColor = AppColors.text_gray_color;
 
   String imageFullPath(String name) {
-    print(AppConstants.categories_images_path + name.capitalize() + '.png');
     return AppConstants.categories_images_path + name.capitalize() + '.png';
   }
 
