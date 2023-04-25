@@ -1,12 +1,11 @@
 import 'package:communicare/constants/app_constants.dart';
+import 'package:communicare/feature/master/bloc/side_bar_bloc.dart';
 import 'package:communicare/theme/app_colors.dart';
 import 'package:communicare/feature/master/widget/side_bar_item_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SideBarWidget extends StatefulWidget {
-  final Function(int) onItemSelected;
-  SideBarWidget({required this.onItemSelected});
-
   @override
   _SideBarWidgetState createState() => _SideBarWidgetState();
 }
@@ -69,7 +68,7 @@ class _SideBarWidgetState extends State<SideBarWidget> {
                 onTap: () {
                   setState(() {
                     selectedIndex = index;
-                    widget.onItemSelected(index);
+                    SideBarIndexChanged(index);
                   });
                 },
                 child: SideBarItem(
@@ -87,5 +86,4 @@ class _SideBarWidgetState extends State<SideBarWidget> {
       ),
     );
   }
-
 }

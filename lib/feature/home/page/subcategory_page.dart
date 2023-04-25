@@ -47,12 +47,7 @@ class _SubcategoryPageState extends State<SubcategoryPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                SideBarWidget(onItemSelected: (index) {
-                  setState(() {
-                    sideBarIndex = index;
-                    buildChildBasedOnIndex(index);
-                  });
-                }),
+                SideBarWidget(),
                 Expanded(
                   child: CategoriesWidget(
                     itemsList: widget.itemsList,

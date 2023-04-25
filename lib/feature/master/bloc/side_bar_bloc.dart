@@ -11,8 +11,10 @@ class SideBarBloc extends Bloc<SideBarEvent, SideBarState> {
       if (event is SideBarIndexChanged) {
         switch (event.index) {
           case 0:
-          final List<CategoryModel> categoriesList = [];
-          return HomeState(categoriesList);
+            final List<CategoryModel> categoriesList = [];
+            return HomeState(categoriesList);
+          default:
+            print(event.index);
         }
       }
     });
